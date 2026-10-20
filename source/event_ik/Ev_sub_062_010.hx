@@ -1,0 +1,62 @@
+package event_ik;
+
+import main.event.ik.base.BaseSubQuest;
+import main.event.ik.command.IkScriptCommand;
+import ext.gf.audio.SoundCommand;
+
+@:keep
+@:chunk("event_ik")
+@:hashAbi("C829E024924A810CD")
+@:expose("C829E024924A810CD")
+class Ev_sub_062_010 extends BaseSubQuest
+{
+    public function new()
+    {
+        super();
+    }
+
+    @:hashAbi("F3D2BC949D2E00A34")
+    public override function OnCreate():Dynamic
+    {
+        this.Participants = ["npc_sub062_001"];
+        return null;
+    }
+
+    @:hashAbi("FD8D5F3745B4B5174")
+    public override function mainBody():Void
+    {
+        SoundCommand.PostEventGlobal("SET_BUS_VOLUME_PM_M_AURA_MUTE_T0");
+        IkScriptCommand.FObj_Set_Turn_To_Obj_LookAt("npc_sub062_001", "Player");
+        IkScriptCommand.FObj_Set_Turn_To_Obj_LookAt("Player", "npc_sub062_001");
+        IkScriptCommand.FObj_LookAt_Obj("Player", "npc_sub062_001", "head");
+        IkScriptCommand.FObj_LookAt_Obj("npc_sub062_001", "Player", "head");
+        IkScriptCommand.Wait_FObj_Action();
+        IkScriptCommand.S522136910C73A819("Player");
+        IkScriptCommand.S522136910C73A819("npc_sub062_001");
+        IkScriptCommand.ShowMessage(0, "msg_Ev_sub_062_010_talk_01", "sub_062", "npc_sub062_001");
+        var selection = IkScriptCommand.ShowContextMenu(["msg_Ev_sub_062_010_select_01", "msg_Ev_sub_062_010_select_02"], 0, true, false);
+        IkScriptCommand.HideMessageWindow();
+        if (0 == selection)
+        {
+            IkScriptCommand.FObj_Set_Visibility("Player", false);
+            IkScriptCommand.Camera_SetEasy_AnyAngle_Template("npc_sub062_001", 3);
+            IkScriptCommand.SetFacialTemplate("npc_sub062_001", "confident");
+            IkScriptCommand.Wait_FObj_Action();
+            IkScriptCommand.ShowMessage(1, "msg_Ev_sub_062_010_talk_03", "sub_062");
+            IkScriptCommand.HideMessageWindow();
+            SoundCommand.ExecuteBGMCommand("EV_CMN_VS_READY_01");
+            SoundCommand.ExecuteBGMCommand("SYS_SE_BLOCK_VS_READY");
+            SoundCommand.PostEventGlobal("SET_BUS_VOLUME_PM_M_AURA_RESET_T3000");
+            IkScriptCommand.FadeOutType(7);
+        }
+        else
+        {
+            IkScriptCommand.SetFacialTemplate("npc_sub062_001", "surprise");
+            IkScriptCommand.ShowMessage(1, "msg_Ev_sub_062_010_talk_02", "sub_062", null, true, true);
+            IkScriptCommand.HideMessageWindow();
+            IkScriptCommand.SetFacialTemplate("npc_sub062_001", "normal");
+            SoundCommand.PostEventGlobal("SET_BUS_VOLUME_PM_M_AURA_RESET_T3000");
+        }
+        this.m_resultParam = selection;
+    }
+}

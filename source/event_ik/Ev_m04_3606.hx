@@ -1,0 +1,203 @@
+package event_ik;
+
+import main.event.ik.base.BaseMainScenario;
+
+@:keep
+@:chunk("event_ik")
+@:hashAbi("CAD49D11E8FAB5D19")
+@:expose("CAD49D11E8FAB5D19")
+class Ev_m04_3606 extends BaseMainScenario
+{
+    public function new()
+    {
+        super();
+    }
+
+    @:hashAbi("FD8D5F3745B4B5174")
+    public override function mainBody():Void
+    {
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_AUDIENCE_MUTE_T1000");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-662.83), 0.01, (-876.07), (-146.62));
+        main.event.ik.command.IkScriptCommand.Create_Npc_Dynamic("dyn_main_f", lua.Table.create([(-669.52), 0.01, (-885.89)]), 31.95, "npc_main_f");
+        main.event.ik.command.IkScriptCommand.Create_NpcPokemon("ZIGARUDE", lua.Table.create([(-665.0), 0.02, (-879.4)]), 39.26, 718, 1, 0);
+        main.event.ik.command.IkScriptCommand.Wait_CreateCharacter();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "ZIGARUDE", "head");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-661.35), 1.57, (-875.62)]), lua.Table.create([(-12.44), 58.5, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("dyn_main_f", false);
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("SYS_SE_BLOCK_RESET");
+        main.event.ik.command.IkScriptCommand.Fade_In("transition_fade_inout", 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.5);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-661.67), 1.74, (-876.39)]), lua.Table.create([(-33.66), 84.79, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        var zigarudeMovement:Dynamic = main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("ZIGARUDE", (-663.55), 0.02, (-877.16), 0.5);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("ZIGARUDE", "Player", "head");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(zigarudeMovement);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 141);
+        main.event.ik.command.IkScriptCommand.ShowMessage(2, "msg_Ev_m04_3606_talk_01", "main_04_01");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-662.74), 0.97, (-876.89)]), lua.Table.create([23.56, 167.86, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        var playerAnimation:Dynamic = main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 201);
+        main.event.ik.command.IkScriptCommand.AddTagCommon("Player", "IshikoroObject");
+        main.event.ik.command.IkScriptCommand.Wait_Time(2.0);
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "smile_bitter");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(playerAnimation);
+        main.event.ik.command.IkScriptCommand.Wait_Time(2.0);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-662.81), 1.32, (-876.74)]), lua.Table.create([(-26.01), 167.86, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(2.5, lua.Table.create([(-662.83), 1.28, (-876.65)]), lua.Table.create([(-26.01), 167.86, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("ZIGARUDE");
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.ShowMessage(2, "msg_Ev_m04_3606_talk_02", "main_04_01");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.ShowImportantItemWindow("ITEMID_ISHIKORO", true);
+        main.event.ik.command.IkScriptCommand.Wait_End_ImportantItemWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(2.0);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("dyn_main_f", true);
+        var dynMainFMovement:Dynamic = main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("dyn_main_f", (-666.87), 0.01, (-882.24), 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.2);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-661.93), 1.33, (-875.8)]), lua.Table.create([(-21.0), 63.12, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(4.0, lua.Table.create([(-661.85), 1.33, (-875.97)]), lua.Table.create([(-21.0), 63.12, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(dynMainFMovement);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.8);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_01", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_02", "main_04_01", "dyn_main_f");
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "normal");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("Player");
+        main.event.ik.command.IkScriptCommand.FObj_Reset_Animation("Player");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-666.9), 0.88, (-883.42)]), lua.Table.create([(-4.87), (-162.81), (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.RemoveTagCommon("Player", "IshikoroObject");
+        untyped main.event.ik.command.IkScriptCommand.ShowContextMenu((["msg_Ev_m04_3605_select_01", "msg_Ev_m04_3605_select_02"]), 0, false, false);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_03", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_ALL_M12DB_T5000");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-665.09), 0.54, (-882.18)]), lua.Table.create([3.86, 82.73, 0.0]), 17.2, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(3.0, lua.Table.create([(-665.19), 1.59, (-881.68)]), lua.Table.create([3.86, 71.81, 0.0]), 17.2, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("ZIGARUDE", (-664.17), 0.02, (-876.7), (-148.24));
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-663.04), 0.01, (-876.2), (-143.4));
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_PS_BGM_08");
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_CMN_VS_END_EV_WILD");
+        main.event.ik.command.IkScriptCommand.Wait_Time(3.5);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_04", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("ZIGARUDE", (-664.87), 0.02, (-878.03), 41.83);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("dyn_main_f", (-666.82), 0.01, (-882.17), 24.99);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-663.21), 1.27, (-877.79)]), lua.Table.create([(-26.6), 78.76, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(2.0, lua.Table.create([(-663.24), 1.27, (-877.61)]), lua.Table.create([(-26.6), 78.76, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Pos("Player", lua.Table.create([(-663.97), 1.1, (-877.0)]));
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_05", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-663.58), 0.96, (-877.23)]), lua.Table.create([(-15.38), 61.75, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(9, Int))));
+        var zigarudeAnimation:Dynamic = main.event.ik.command.IkScriptCommand.FObj_Set_Animation("ZIGARUDE", 17);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.3);
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.8, lua.Table.create([(-661.42), 1.63, (-876.06)]), lua.Table.create([(-15.38), 61.75, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(9, Int))));
+        main.event.ik.command.IkScriptCommand.ShowMessage(1, "msg_Ev_m04_3605_talk_06", "main_04_01", null, false, true);
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(zigarudeAnimation);
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-663.04), 0.01, (-876.2), (-143.4));
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-665.74), 1.42, (-881.58)]), lua.Table.create([12.39, 61.41, 0.0]), 30.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("Player");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_07", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(dynMainFMovement);
+        main.event.ik.command.IkScriptCommand.FObj_CloseEye("dyn_main_f");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(3.5, lua.Table.create([(-666.08), 1.59, (-881.65)]), lua.Table.create([8.74, 53.88, (-0.0)]), 30.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_08", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("dyn_main_f", "normal");
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.5);
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("dyn_main_f", (-666.9), 0.01, (-882.05), 34.35);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-663.04), 0.01, (-876.2), (-151.9));
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-665.84), 0.91, (-882.07)]), lua.Table.create([5.06, (-173.27), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(9, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.4, lua.Table.create([(-666.32), 0.67, (-885.07)]), lua.Table.create([5.06, (-173.27), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(9, Int))));
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("PLAY_SS_FL_WHOOSH03");
+        main.event.ik.command.IkScriptCommand.ShowMessage(1, "msg_Ev_m04_3605_talk_09", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-663.14), 1.35, (-877.37)]), lua.Table.create([0.47, (-173.46), 0.0]), 34.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        untyped main.event.ik.command.IkScriptCommand.ShowContextMenu((["msg_Ev_m04_3605_select_03", "msg_Ev_m04_3605_select_04"]), 0, false, false);
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "serious");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 18));
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.0);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("ZIGARUDE", (-664.87), 0.02, (-878.03), 39.33);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("dyn_main_f", (-666.82), 0.01, (-882.17), 24.99);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-663.29), 0.01, (-876.13), (-140.9));
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-664.39), 0.72, (-878.63)]), lua.Table.create([5.54, (-168.13), (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(1.8, lua.Table.create([(-664.78), 0.52, (-879.2)]), lua.Table.create([5.54, (-168.13), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "normal");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "ZIGARUDE", "head");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_10", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_11", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-666.0), 1.48, (-881.43)]), lua.Table.create([11.85, 60.4, (-0.02)]), 30.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(3.5, lua.Table.create([(-665.9), 1.48, (-881.61)]), lua.Table.create([11.85, 60.4, (-0.02)]), 30.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_12", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-661.06), 1.83, (-875.58)]), lua.Table.create([(-14.98), 58.84, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(main.event.ik.command.IkScriptCommand.FObj_Set_Turn("ZIGARUDE", (-144.17)));
+        main.event.ik.command.IkScriptCommand.S522136910C73A819("Player");
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.5);
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("ZIGARUDE", (-668.12), 0.01, (-882.23), 2.0);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.25);
+        var zMoveDisappEffectKey:Dynamic = "z_move_disapp";
+        main.event.ik.command.IkScriptCommand.CreateLocaterEffect("field/event/z_move/z_move_disapp", zMoveDisappEffectKey, "ZIGARUDE", "event_script");
+        this.Await((function():Dynamic
+        {
+            return main.event.ik.command.IkScriptCommand.IsSetUpEffect(zMoveDisappEffectKey);
+        }));
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("PLAY_SS_0718_MOVE_FAST");
+        main.event.ik.command.IkScriptCommand.PlayEffect(zMoveDisappEffectKey);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("ZIGARUDE", false);
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.5);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-666.1), 1.5, (-881.83)]), lua.Table.create([17.61, 66.01, 0.0]), 31.12, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Pos("dyn_main_f", lua.Table.create([(-654.24), 4.58, (-865.08)]));
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.0);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-667.21), 1.08, (-883.59)]), lua.Table.create([17.78, (-148.64), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(1.8, lua.Table.create([(-667.36), 0.95, (-883.83)]), lua.Table.create([17.78, (-148.64), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_16", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("dyn_main_f");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("dyn_main_f", (-158.14));
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.3);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-666.69), 1.81, (-883.1)]), lua.Table.create([(-8.67), (-164.65), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(1.0, lua.Table.create([(-666.83), 1.81, (-883.06)]), lua.Table.create([(-8.67), (-164.65), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "dyn_main_f", "head");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_m04_3605_talk_20", "main_04_01", "dyn_main_f");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_CMN_FADE_OUT_5S");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle_Fov(0.0, lua.Table.create([(-668.02), 0.59, (-884.75)]), lua.Table.create([6.46, (-171.28), 0.0]), 35.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(6, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("dyn_main_f", (-668.49), 0.01, (-884.31), 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Time(5.0);
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("SYS_SE_BLOCK_ALL");
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_AUDIENCE_RESET_T1000");
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_ALL_RESET_T3000");
+        main.event.ik.command.IkScriptCommand.Fade_Out("transition_fade_inout", 1.0);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+    }
+}

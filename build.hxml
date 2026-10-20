@@ -1,0 +1,43 @@
+-cp source
+--macro haxe.macro.HashAbi.enable()
+--macro haxe.macro.abi.LuaOutput.enable()
+-dce full
+-D lua-vanilla
+-D analyzer-optimize
+-D lua-ver=5.4
+--each
+--macro haxe.macro.abi.Chunks.select("dll_util")
+-main lua.abi.DllUtil
+-lua build/dll_util.lua
+--macro keep('Array')
+--macro keep('String')
+--macro keep('haxe.Exception')
+--macro keep('haxe.NativeStackTrace')
+--macro keep('haxe.ValueException')
+--macro keep('haxe.exceptions.PosException')
+--macro keep('haxe.exceptions.NotImplementedException')
+--macro keep('haxe.iterators.ArrayIterator')
+--macro keep('haxe.iterators.ArrayKeyValueIterator')
+--next
+--macro haxe.macro.abi.Chunks.select("main_dynamic")
+-main lua.abi.DllUtil
+-lua build/main_dynamic.lua
+--macro keep('Array')
+--macro keep('String')
+--macro keep('haxe.Exception')
+--macro keep('haxe.NativeStackTrace')
+--macro keep('haxe.ValueException')
+--macro keep('haxe.exceptions.PosException')
+--macro keep('haxe.exceptions.NotImplementedException')
+--macro keep('haxe.iterators.ArrayIterator')
+--macro keep('haxe.iterators.ArrayKeyValueIterator')
+--next
+--macro haxe.macro.abi.Chunks.select("main")
+--macro haxe.macro.abi.Chunks.include("main")
+-main lua.abi.Main
+-lua build/main.lua
+--next
+--macro haxe.macro.abi.Chunks.select("event_ik")
+--macro haxe.macro.abi.Chunks.include("event_ik")
+-main lua.abi.EventIk
+-lua build/event_ik.lua

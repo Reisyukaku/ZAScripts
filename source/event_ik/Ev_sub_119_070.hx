@@ -1,0 +1,238 @@
+package event_ik;
+
+import main.event.ik.base.BaseSubQuest;
+
+@:keep
+@:chunk("event_ik")
+@:hashAbi("CA2E78FB4B8CEE73A")
+@:expose("CA2E78FB4B8CEE73A")
+class Ev_sub_119_070 extends BaseSubQuest
+{
+    public function new()
+    {
+        super();
+    }
+
+    @:hashAbi("F3D2BC949D2E00A34")
+    public override function OnCreate():Dynamic
+    {
+        untyped this.Participants = (["npc_main_detective", "npc_pokemon_moko_2", "npc_main_detective", "npc_pokemon_sub119_2", "npc_pokemon_sub119_3"]);
+        return null;
+    }
+
+    @:hashAbi("FD8D5F3745B4B5174")
+    public override function mainBody():Void
+    {
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_AUDIENCE_MUTE_T1000");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("npc_pokemon_sub119_1", false);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("npc_pokemon_sub119_2", false);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("npc_pokemon_sub119_3", false);
+        main.event.ik.command.IkScriptCommand.Create_NpcPokemon("DHIANSII", lua.Table.create([(-101.26), 27.82, (-296.05)]), 161.94, 719, 0, 0);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_pokemon_moko_2", (-102.11), 27.82, (-297.21), 67.32);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_main_detective", (-101.19), 27.83, (-297.53), 59.39);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-99.64), 27.83, (-296.43), (-111.38));
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_pokemon_moko_2", "Player", "head");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "Player", "head");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 1);
+        main.event.ik.command.IkScriptCommand.Wait_CreateCharacter();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("DHIANSII", false);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-98.03), 30.18, (-296.8)]), lua.Table.create([(-12.14), 90.41, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(2.0, lua.Table.create([(-98.03), 29.38, (-296.8)]), lua.Table.create([(-12.14), 90.41, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_PS_BGM_02");
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_CMN_VS_END_EV_WILD");
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("SYS_GAMEOVER_INIT");
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("SYS_UNLOCK_GAME_OVER");
+        main.event.ik.command.IkScriptCommand.Fade_In("transition_fade_inout", 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+        var detectiveSurprise = main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 31);
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_01", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(detectiveSurprise);
+        var detectiveReset = main.event.ik.command.IkScriptCommand.FObj_Reset_Animation("npc_main_detective");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_02", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(detectiveReset);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 174);
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.5);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("Player");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("Player", (-44.41));
+        main.event.ik.command.IkScriptCommand.S522136910C73A819("Player");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.3);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 74);
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.0);
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("PLAY_SS_POKE_APPERANCE");
+        main.event.ik.command.IkScriptCommand.Fade_Out("White", 0.25);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_main_detective", (-101.12), 27.83, (-297.48), 2.8);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("Player", (-100.1), 27.83, (-296.88), (-68.15));
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_pokemon_moko_2", (-102.11), 27.82, (-297.21), 23.82);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "DHIANSII", "head");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "DHIANSII", "head");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_pokemon_moko_2", "DHIANSII", "head");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Visibility("DHIANSII", true);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-100.24), 28.04, (-296.89)]), lua.Table.create([3.19, 129.92, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(1.7, lua.Table.create([(-100.63), 28.21, (-297.21)]), lua.Table.create([3.19, 152.24, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Fade_In("White", 0.25);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("DHIANSII", 20);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("DHIANSII", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_03", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-98.83), 29.76, (-299.93)]), lua.Table.create([(-19.3), 146.72, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(8.0, lua.Table.create([(-99.1), 29.62, (-299.53)]), lua.Table.create([(-19.3), 146.72, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        var detectiveExplanation = main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 20);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_04", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "npc_main_detective", "head");
+        untyped main.event.ik.command.IkScriptCommand.ShowContextMenu((["msg_Ev_sub_119_070_select_01", "msg_Ev_sub_119_070_select_02"]), 0, false, false);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action(detectiveExplanation);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 18);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "Player", "head");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.2);
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("npc_pokemon_moko_2", (-101.63), 27.82, (-296.35), 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.2);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("DHIANSII", "npc_pokemon_moko_2", "head");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_05", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn_To_Obj("Player", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-99.04), 29.2, (-297.39)]), lua.Table.create([(-3.88), 100.6, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "serious");
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("npc_main_detective", "serious");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 28);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_06", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.FObj_Reset_Animation("npc_main_detective");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-100.25), 29.25, (-297.38)]), lua.Table.create([(-2.07), 84.04, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_07", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 174);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_08", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-101.51), 28.02, (-298.67)]), lua.Table.create([(-0.72), (-160.68), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(5.0, lua.Table.create([(-101.87), 28.02, (-298.54)]), lua.Table.create([(-0.72), (-160.68), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_pokemon_moko_2", 20);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_09", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.2);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("DHIANSII", 20);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_10", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_pokemon_moko_2", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn_To_Obj("npc_pokemon_moko_2", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("DHIANSII", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-102.15), 29.35, (-297.08)]), lua.Table.create([(-8.89), (-82.11), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_11", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_12", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-103.2), 27.85, (-295.71)]), lua.Table.create([15.14, (-65.57), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_pokemon_moko_2", 25);
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_13", "sub_119");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("npc_main_detective", "rejoice_small_mc");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "npc_pokemon_moko_2", "head");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.2);
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("Player", "normal");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "npc_pokemon_moko_2", "head");
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("npc_main_detective", "normal");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_14", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-100.45), 28.63, (-296.44)]), lua.Table.create([(-18.2), 114.89, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "Player", "head");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("DHIANSII", "Player", "head");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_15", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_16", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("DHIANSII", 20);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("Player", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_pokemon_moko_2", (-101.84), 27.82, (-295.96), 155.67);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("npc_main_detective", (-101.39), 27.83, (-297.58), 41.8);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Pos_Ang("DHIANSII", (-101.1), 27.82, (-295.98), (-138.41));
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-100.64), 29.29, (-291.3)]), lua.Table.create([(-8.29), 4.36, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(6.0, lua.Table.create([(-101.78), 29.29, (-291.21)]), lua.Table.create([(-8.29), 4.36, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("Player", 174);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_17", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("npc_main_detective");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("npc_pokemon_moko_2");
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("npc_main_detective", (-102.81), 27.83, (-293.88), 0.5);
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("npc_pokemon_moko_2", (-102.12), 27.82, (-294.76), 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.3);
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("DHIANSII", "npc_main_detective", "head");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("DHIANSII", (-36.3));
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("Player", (-29.9));
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_Obj("npc_main_detective", "Player", "head");
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("npc_main_detective", 134.47);
+        main.event.ik.command.IkScriptCommand.FObj_Set_Turn("npc_pokemon_moko_2", 155.67);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_18", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-100.34), 28.57, (-295.34)]), lua.Table.create([17.0, (-7.26), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(15.0, lua.Table.create([(-100.25), 28.91, (-296.02)]), lua.Table.create([17.0, (-7.26), 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_19", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_20", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Wait_Time(1.0);
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-101.95), 29.06, (-294.28)]), lua.Table.create([8.48, 111.24, (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.FObj_Set_Animation("npc_main_detective", 174);
+        main.event.ik.command.IkScriptCommand.Wait_FObj_Action();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("npc_main_detective", "rejoice_big_mc");
+        main.event.ik.command.IkScriptCommand.ShowMessage(0, "msg_Ev_sub_119_070_talk_21", "sub_119", "npc_main_detective");
+        main.event.ik.command.IkScriptCommand.HideMessageWindow();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-101.78), 29.29, (-291.21)]), lua.Table.create([(-8.29), 4.36, 0.0]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        untyped main.event.ik.command.IkScriptCommand.SetFacialTemplate("npc_main_detective", "normal");
+        main.event.ik.command.IkScriptCommand.FObj_LookAt_End("npc_main_detective");
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("npc_main_detective", (-104.53), 28.55, (-290.4), 1.0);
+        main.event.ik.command.IkScriptCommand.FObj_Move_To_PosXYZ("npc_pokemon_moko_2", (-103.31), 28.54, (-290.64), 1.0);
+        main.event.ik.command.IkScriptCommand.Wait_Time(3.5);
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_PM_MUTE_T500");
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(0.0, lua.Table.create([(-101.5), 28.0, (-294.52)]), lua.Table.create([11.72, (-9.37), (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.Camera_Move_Angle(2.0, lua.Table.create([(-101.05), 28.0, (-294.45)]), lua.Table.create([11.72, (-9.37), (-0.0)]), 40.0, 0, main.event.ik.command.IkScriptCommand.EaseCameraType._new((cast(3, Int))));
+        main.event.ik.command.IkScriptCommand.Wait_Camera();
+        main.event.ik.command.IkScriptCommand.PlayQuestAchievementUI("sub_0119");
+        main.event.ik.command.IkScriptCommand.Wait_Time(0.5);
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("SYS_SE_BLOCK_WITHOUT_ENV");
+        untyped ext.gf.audio.SoundCommand.ExecuteBGMCommand("EV_STOP_LYER_EVENT");
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_ENV_AUDIENCE_RESET_T3000");
+        untyped ext.gf.audio.SoundCommand.PostEventGlobal("SET_BUS_VOLUME_PM_RESET_T3000");
+        main.event.ik.command.IkScriptCommand.Fade_Out("transition_fade_inout", 0.5);
+        main.event.ik.command.IkScriptCommand.Wait_Fade();
+    }
+}

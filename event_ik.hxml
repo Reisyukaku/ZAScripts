@@ -1,0 +1,11 @@
+-cp source
+--macro haxe.macro.HashAbi.enable()
+--macro haxe.macro.abi.LuaOutput.enable()
+-dce full
+-D lua-vanilla
+-D analyzer-optimize
+-D lua-ver=5.4
+--macro haxe.macro.abi.Chunks.select("event_ik")
+--macro haxe.macro.abi.Chunks.include("event_ik")
+-main lua.abi.EventIk
+-lua build/event_ik.lua
